@@ -53,12 +53,16 @@ def main():
     print(f"   Current state from scraper  : {curr_shows_status}")
     print(f"   Is Data Different           : {is_different}")
 
+    save_mode = "--save" in sys.argv
     if is_different:
         print("   → Data CHANGED! Would send Telegram alert for every show time.")
-        state["shows_status"] = curr_shows_status
-        state["available"] = summary["available"]
-        save_json(STATE_PATH, state)
-        print("   → Updated state.json successfully.")
+        if save_mode:
+            state["shows_status"] = curr_shows_status
+            state["available"] = summary["available"]
+            save_json(STATE_PATH, state)
+            print("   → Updated state.json successfully (--save specified).")
+        else:
+            print("   → (dry-run mode: state.json was NOT modified. Pass --save to persist changes)")
     else:
         print("   → Data UNCHANGED! No alert required.")
 

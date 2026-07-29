@@ -2,8 +2,8 @@ name: booking-watch
 
 on:
   schedule:
-    # Runs every 10 minutes
-    - cron: "4,14,24,34,44,54 * * * *"
+    # Runs every 3 minutes
+    - cron: "*/3 * * * *"
   workflow_dispatch: {}   # lets you trigger a manual run from the Actions tab
 
 # Allow the workflow to commit the updated state file back to the repo.
