@@ -40,7 +40,22 @@ Sign up at **scraperapi.com** (free tier) and copy your API key.
 Pick a `detector`. The page URL is built from `url_template` + `requested_date`.
 After editing, reset `state.json` to `{"available": false}`.
 
-**`venue_date`** — a specific theatre opens for a specific date (most precise):
+**`spiderman_scraper`** — Playwright-powered crawler with showtime & seat-level breakdown (default & recommended):
+```json
+{
+  "detector": "spiderman_scraper",
+  "movie": "Spider-Man: Brand New Day",
+  "requested_date": "20260730",
+  "city": "hyderabad",
+  "movie_slug": "spider-man-brand-new-day",
+  "movie_id": "ET00505581",
+  "venue_code": "ACEV",
+  "venue_label": "ART CINEMAS: Vanasthalipuram",
+  "url_template": "https://in.bookmyshow.com/movies/hyderabad/spider-man-brand-new-day/buytickets/ET00505581/{date}"
+}
+```
+
+**`venue_date`** — a specific theatre opens for a specific date (HTML matching fallback):
 ```json
 {
   "detector": "venue_date",
@@ -51,7 +66,6 @@ After editing, reset `state.json` to `{"available": false}`.
   "url_template": "https://in.bookmyshow.com/movies/chennai/the-odyssey/buytickets/ET00480917/{date}"
 }
 ```
-Use `"venue_codes": ["PVPZ","INPR"]` to fire when *any* of several theatres open.
 
 **`bms_date`** — a date opens at *any* theatre (date-dominance on the page):
 ```json
@@ -62,7 +76,7 @@ Use `"venue_codes": ["PVPZ","INPR"]` to fire when *any* of several theatres open
 **Finding the values:** read `<city>/<slug>/<ETcode>/<date>` from the movie's
 "Book tickets" URL. For `venue_code`, open a date where the theatre *is* open and
 read its cinema link `.../cinemas/<city>/<venue-slug>/buytickets/<CODE>/<date>` —
-the `<CODE>` (e.g. `PVPZ`, `INPR`) is the value.
+the `<CODE>` (e.g. `ACEV`, `PVPZ`, `INPR`) is the value.
 
 ## 5. Schedule it with cron-job.org
 
