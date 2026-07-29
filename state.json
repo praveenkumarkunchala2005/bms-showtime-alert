@@ -3,9 +3,9 @@
     "10:30 AM": false,
     "01:35 PM": false,
     "04:35 PM": false,
-    "07:35 PM": true,
+    "07:35 PM": false,
     "10:35 PM": true
   },
   "available": true,
-  "checked_at": 1785368236
+  "checked_at": 1785368413
 }
