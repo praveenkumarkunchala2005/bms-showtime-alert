@@ -1,8 +1,8 @@
 {
   "shows_status": {
     "07:35 PM": true,
-    "10:35 PM": false
+    "10:35 PM": true
   },
   "available": true,
-  "checked_at": 1785416463
+  "checked_at": 1785420258
 }
