@@ -6,7 +6,8 @@
   "main": "scraper.js",
   "scripts": {
     "start": "node scraper.js",
-    "test": "python3 test_run.py"
+    "test": "python3 test_run.py",
+    "seat-check": "node district_interactive_seat_check.js"
   },
   "dependencies": {
     "crawlee": "^3.12.2",
